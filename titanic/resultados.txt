@@ -1,0 +1,1453 @@
+--- En test_data.csv
+Número de filas con 'Survived' igual a 'X': 69
+Número de filas con 'Survived' diferente de 'X': 110
+Número total de filas: 179
+Número de propirción de 'Survived' igual a 'X' : 0.3854748603351955
+Número de propirción de 'Survived' igual a '' : 0.6145251396648045
+
+SibSp -> Número de hermanos y/o cónyuge que viajaban con esa persona en el barco.
+Parch -> Número de padres y/o hijos que también estaban a bordo con esa persona.
+--- En crearData1.0.py
+Prueba original y base de los resultados en accuracy_ratios y en accuracy_ratios_drop_False
+
+--- Mejor resultado actual
+Duración 1 min
+185 implicaciones de la base Luxenburger
+833 conceptos
+Base de Luxenburger con confianza 0.75 y soporte 16/712
+Ratio de acierto: 0.6759776536312849
+
+age_bins = [0, 18, 60, 100]
+age_labels = ["0-18", "18-60", "60-100"]
+Quitar columna edad -> 0.6703910614525139 | 467 conceptos
+Aumentar -> 0.664804469273743 | 1506 conceptos | age_bins = [0, 5, 12, 18, 35, 50, 65, 80, 100]
+
+
+fare_bins = [0., 10., 20., 30., 40., 50., 75., 100., 150., 200., 300., 400., 513.]
+fare_labels = ["0-10", "10-20", "20-30", "30-40", "40-50", "50-75", "75-100", "100-150", "150-200", "200-300", "300-400", "400-513"]
+Disminuir -> 0.636 |  736 conceptos
+Aumentar -> 0.648 | 1451 conceptos
+
+sibsp_bins = [0, 1, 2, 3, 4, float('inf')]
+sibsp_labels = ["0", "1", "2", "3", ">3"]
+Disminuir -> 0.6703910614525139
+Aumentar un poco -> 0.6759776536312849 (añadir el 5)
+
+parch_bins = [0, 1, 4, float('inf')]
+parch_labels = ["0", "1-3", ">3"]
+Disminuir -> 0.6759776536312849 (quitar 4)
+Aumentar -> 0.664804469273743
+
+----------------------------------------------------------------------
+Resultados para 20/3/25:
+
+age_bins = [0, 12, 18, 60, 100]
+age_labels = ["0-12", "12-18","18-60", "60-100"]
+
+fare_bins = [0., 25., 50., 100., 150., 200., 300., 513.]
+fare_labels = ["0-25", "25-50", "50-100", "100-150", "150-200", "200-300", "300-513"]
+
+sibsp_bins = [0, 1, 4, float('inf')]
+sibsp_labels = ["0", "1-3", ">3"]
+
+parch_bins = [0, 1, 4, float('inf')]
+parch_labels = ["0", "1-3", ">3"]
+
+712
+2898
+1061
+Base de Luxenburger con confianza 0.75 y soporte 32/712 creada.
+Ratio de acierto: 0.7206703910614525
+Falsos positivos: 32
+Falsos negativos: 18
+
+
+712
+794
+Base de Luxenburger con confianza 0.80 y soporte 32.0/712 creada.
+Ratio de acierto: 0.7094972067039106
+Falsos positivos: 24
+Falsos negativos: 28
+Proceso completado.
+
+
+Base de Luxenburger con confianza 0.75 y soporte 48.00 creada.
+Ratio de acierto: 0.7486033519553073. Falsos positivos: 25. Falsos negativos: 20
+Base de Luxenburger con confianza 0.75 y soporte 50.00 creada.
+Ratio de acierto: 0.7486033519553073. Falsos positivos: 25. Falsos negativos: 20
+Base de Luxenburger con confianza 0.75 y soporte 52.00 creada.
+Ratio de acierto: 0.776536312849162. Falsos positivos: 16. Falsos negativos: 24
+Base de Luxenburger con confianza 0.75 y soporte 54.00 creada.
+Ratio de acierto: 0.776536312849162. Falsos positivos: 16. Falsos negativos: 24
+Base de Luxenburger con confianza 0.75 y soporte 60.00 creada.
+Ratio de acierto: 0.776536312849162. Falsos positivos: 16. Falsos negativos: 24
+
+Ratio de acierto: 0.776536312849162. Falsos positivos: 16. Falsos negativos: 24
+Base de Luxenburger con confianza 0.80 y soporte 72.00 creada.
+Ratio de acierto: 0.6871508379888268. Falsos positivos: 1. Falsos negativos: 55
+Base de Luxenburger con confianza 0.80 y soporte 74.00 creada.
+
+Base de Luxenburger con confianza 0.75 y soporte 104.00 creada.
+Ratio de acierto: 0.776536312849162. Falsos positivos: 16. Falsos negativos: 24
+Base de Luxenburger con confianza 0.75 y soporte 106.00 creada.
+Ratio de acierto: 0.776536312849162. Falsos positivos: 16. Falsos negativos: 24
+Base de Luxenburger con confianza 0.75 y soporte 108.00 creada.
+Ratio de acierto: 0.776536312849162. Falsos positivos: 16. Falsos negativos: 24
+
+Base de Luxenburger con confianza 0.75, soporte 155.00 y número de implicaciones 340 creada.
+Ratio de acierto: 0.776536312849162. Falsos positivos: 16. Falsos negativos: 24
+Base de Luxenburger con confianza 0.75, soporte 160.00 y número de implicaciones 332 creada.
+Ratio de acierto: 0.6145251396648045. Falsos positivos: 0. Falsos negativos: 69
+
+------------------------------------------------------ semana 24 marzo
+Resultados de aumento_columnas:
+
+dura 6-7 minutos
+Confianza: 0.85. Soporte: 32/712. Ratio de acierto: 0.8100558659217877. Falsos positivos: 4. Falsos negativos: 30.
+
+age_bins = [0, 2, 5, 12, 18, 25, 35, 45, 55, 65, 75, 85, 100]
+age_labels = ["0-2", "2-5", "5-12", "12-18", "18-25", "25-35", "35-45", "45-55", "55-65", "65-75", "75-85", "85-100"]
+
+fare_bins = [0., 10., 20., 30., 40., 50., 60., 70., 80., 90., 100., 150., 200., 300., 513.]  # Ajustar según sea necesario
+fare_labels = ["0-10", "10-20", "20-30", "30-40", "40-50", "50-60", "60-70", "70-80", "80-90", "90-100", "100-150", "150-200", "200-300", "300-513"]
+
+sibsp_bins = [0, 1, 2, 3, 4, 5, 6, 7, float('inf')]
+sibsp_labels = ["0", "1", "2", "3", "4", "5", "6", "7+"]
+
+parch_bins = [0, 1, 2, 3, 4, 5, 6, 7, float('inf')]
+parch_labels = ["0", "1", "2", "3", "4", "5", "6", "7+"]
+
+------------------------------------------------------
+Resultados de aumento_columnas2:
+
+Confianza: 0.90. Soporte: 8/712. Ratio de acierto: 0.8044692737430168. Falsos positivos: 5. Falsos negativos: 30. Tamano base 551
+
+age_bins = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 25, 28, 31, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
+age_labels = ["0-1", "1-2", "2-3", "3-4", "4-5", "5-6", "6-7", "7-8", "8-9", "9-10", "10-12", "12-14", "14-16", "16-18", "18-20", "20-22", "22-25", "25-28", "28-31", "31-35", "35-40", "40-45", "45-50", "50-55", "55-60", "60-65", "65-70", "70-75", "75-80", "80-85", "85-90", "90-95", "95-100"]
+
+fare_bins = [0., 5., 10., 15., 20., 25., 30., 35., 40., 45., 50., 55., 60., 65., 70., 75., 80., 85., 90., 95., 100., 125., 150., 175., 200., 250., 300., 350., 400., 450., 500., 513.]
+fare_labels = ["0-5", "5-10", "10-15", "15-20", "20-25", "25-30", "30-35", "35-40", "40-45", "45-50", "50-55", "55-60", "60-65", "65-70", "70-75", "75-80", "80-85", "85-90", "90-95", "95-100", "100-125", "125-150", "150-175", "175-200", "200-250", "250-300", "300-350", "350-400", "400-450", "450-500", "500-513"]
+
+sibsp_bins = [0, 1, 2, 3, 4, 5, 6, 7, float('inf')]
+sibsp_labels = ["0", "1", "2", "3", "4", "5", "6", "7+"]
+
+parch_bins = [0, 1, 2, 3, 4, 5, 6, 7, float('inf')]
+parch_labels = ["0", "1", "2", "3", "4", "5", "6", "7+"]
+
+*Creado el notebook que recopila los .py anteriores en solo uno.
+
+*Creado el notebook copia que es el mismo notebook anterior pero que hace que la clase Context tenga los metodos y funciones
+para trabajar con entrenamientos, calculo de aciertos, errores en nuestro estudio de IA de AFC.
+
+--------------------------------------------------- 29 marzo
+
+*Creado notebookAjusteHiperparametros para ajustar la confianza, soporte y número de separaciones del atributo edad.
+
+
+0.6771300448430493
+Soporte, Confianza, edades: 0.01, 0.7, 1.0
+0.7982062780269058
+Soporte, Confianza, edades: 0.05500000000000001, 0.7, 1.0
+0.7982062780269058
+Soporte, Confianza, edades: 0.05500000000000001, 0.7, 1.0
+0.7982062780269058
+Soporte, Confianza, edades: 0.1, 0.7, 1.0
+0.7982062780269058
+Soporte, Confianza, edades: 0.1, 0.7, 1.0
+0.6322869955156951
+Soporte, Confianza, edades: 0.01, 0.7, 7.333333333333333
+0.6322869955156951
+Soporte, Confianza, edades: 0.01, 0.7, 7.333333333333333
+0.7982062780269058
+Soporte, Confianza, edades: 0.05500000000000001, 0.7, 7.333333333333333
+0.7982062780269058
+Soporte, Confianza, edades: 0.05500000000000001, 0.7, 7.333333333333333
+0.7982062780269058
+Soporte, Confianza, edades: 0.1, 0.7, 7.333333333333333
+0.7982062780269058
+Soporte, Confianza, edades: 0.1, 0.7, 7.333333333333333
+0.6434977578475336
+Soporte, Confianza, edades: 0.01, 0.7, 13.666666666666666
+0.6434977578475336
+Soporte, Confianza, edades: 0.01, 0.7, 13.666666666666666
+0.7982062780269058
+Soporte, Confianza, edades: 0.05500000000000001, 0.7, 13.666666666666666
+0.7982062780269058
+Soporte, Confianza, edades: 0.05500000000000001, 0.7, 13.666666666666666
+0.7982062780269058
+Soporte, Confianza, edades: 0.1, 0.7, 13.666666666666666
+0.7982062780269058
+Soporte, Confianza, edades: 0.1, 0.7, 13.666666666666666
+0.625560538116592
+Soporte, Confianza, edades: 0.01, 0.7, 20.0
+0.625560538116592
+Soporte, Confianza, edades: 0.01, 0.7, 20.0
+0.7982062780269058
+Soporte, Confianza, edades: 0.05500000000000001, 0.7, 20.0
+0.7982062780269058
+Soporte, Confianza, edades: 0.05500000000000001, 0.7, 20.0
+0.7982062780269058
+Soporte, Confianza, edades: 0.1, 0.7, 20.0
+0.7982062780269058
+Soporte, Confianza, edades: 0.1, 0.7, 20.0
+0.8116591928251121
+--------Soporte, Confianza, edades: 0.01, 0.825, 1.0
+0.8116591928251121
+--------Soporte, Confianza, edades: 0.01, 0.825, 1.0
+0.7869955156950673
+Soporte, Confianza, edades: 0.05500000000000001, 0.825, 1.0
+0.7869955156950673
+Soporte, Confianza, edades: 0.05500000000000001, 0.825, 1.0
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.825, 1.0
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.825, 1.0
+0.7309417040358744
+Soporte, Confianza, edades: 0.01, 0.825, 7.333333333333333
+0.7309417040358744
+Soporte, Confianza, edades: 0.01, 0.825, 7.333333333333333
+0.7825112107623319
+Soporte, Confianza, edades: 0.05500000000000001, 0.825, 7.333333333333333
+0.7825112107623319
+Soporte, Confianza, edades: 0.05500000000000001, 0.825, 7.333333333333333
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.825, 7.333333333333333
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.825, 7.333333333333333
+0.7713004484304933
+Soporte, Confianza, edades: 0.01, 0.825, 13.666666666666666
+0.7713004484304933
+Soporte, Confianza, edades: 0.01, 0.825, 13.666666666666666
+0.7959641255605381
+Soporte, Confianza, edades: 0.05500000000000001, 0.825, 13.666666666666666
+0.7959641255605381
+Soporte, Confianza, edades: 0.05500000000000001, 0.825, 13.666666666666666
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.825, 13.666666666666666
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.825, 13.666666666666666
+0.7690582959641256
+Soporte, Confianza, edades: 0.01, 0.825, 20.0
+0.7690582959641256
+Soporte, Confianza, edades: 0.01, 0.825, 20.0
+0.7982062780269058
+Soporte, Confianza, edades: 0.05500000000000001, 0.825, 20.0
+0.7982062780269058
+Soporte, Confianza, edades: 0.05500000000000001, 0.825, 20.0
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.825, 20.0
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.825, 20.0
+0.7488789237668162
+Soporte, Confianza, edades: 0.01, 0.95, 1.0
+0.7488789237668162
+Soporte, Confianza, edades: 0.01, 0.95, 1.0
+0.7040358744394619
+Soporte, Confianza, edades: 0.05500000000000001, 0.95, 1.0
+0.7040358744394619
+Soporte, Confianza, edades: 0.05500000000000001, 0.95, 1.0
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.95, 1.0
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.95, 1.0
+0.7488789237668162
+Soporte, Confianza, edades: 0.01, 0.95, 7.333333333333333
+0.7488789237668162
+Soporte, Confianza, edades: 0.01, 0.95, 7.333333333333333
+0.7040358744394619
+Soporte, Confianza, edades: 0.05500000000000001, 0.95, 7.333333333333333
+0.7040358744394619
+Soporte, Confianza, edades: 0.05500000000000001, 0.95, 7.333333333333333
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.95, 7.333333333333333
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.95, 7.333333333333333
+0.7488789237668162
+Soporte, Confianza, edades: 0.01, 0.95, 13.666666666666666
+0.7488789237668162
+Soporte, Confianza, edades: 0.01, 0.95, 13.666666666666666
+0.7040358744394619
+Soporte, Confianza, edades: 0.05500000000000001, 0.95, 13.666666666666666
+0.7040358744394619
+Soporte, Confianza, edades: 0.05500000000000001, 0.95, 13.666666666666666
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.95, 13.666666666666666
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.95, 13.666666666666666
+0.7488789237668162
+Soporte, Confianza, edades: 0.01, 0.95, 20.0
+0.7488789237668162
+Soporte, Confianza, edades: 0.01, 0.95, 20.0
+0.7040358744394619
+Soporte, Confianza, edades: 0.05500000000000001, 0.95, 20.0
+0.7040358744394619
+Soporte, Confianza, edades: 0.05500000000000001, 0.95, 20.0
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.95, 20.0
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.95, 20.0
+c:\Program Files\Python313\Lib\site-packages\sklearn\model_selection\_validation.py:528: FitFailedWarning: 
+36 fits failed out of a total of 72.
+The score on these train-test partitions for these parameters will be set to nan.
+If these failures are not expected, you can try to debug them by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+36 fits failed with the following error:
+Traceback (most recent call last):
+  File "c:\Program Files\Python313\Lib\site-packages\sklearn\model_selection\_validation.py", line 866, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andre\AppData\Local\Temp\ipykernel_5800\1320946615.py", line 22, in fit
+    print(self.context.precision(X_copy, y))
+          ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\andre\AppData\Local\Temp\ipykernel_5800\199861216.py", line 173, in precision
+    coincidencias = predicciones == etiquetas
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Program Files\Python313\Lib\site-packages\pandas\core\ops\common.py", line 76, in new_method
+    return method(self, other)
+  File "c:\Program Files\Python313\Lib\site-packages\pandas\core\arraylike.py", line 40, in __eq__
+    return self._cmp_method(other, operator.eq)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "c:\Program Files\Python313\Lib\site-packages\pandas\core\series.py", line 6114, in _cmp_method
+    raise ValueError("Can only compare identically-labeled Series objects")
+ValueError: Can only compare identically-labeled Series objects
+
+  warnings.warn(some_fits_failed_message, FitFailedWarning)
+c:\Program Files\Python313\Lib\site-packages\sklearn\model_selection\_search.py:1108: UserWarning: One or more of the test scores are non-finite: [nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan
+ nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan]
+  warnings.warn(
+0.6947250280583613
+Mejores hiperparámetros:
+{'confianza': np.float64(0.7), 'n_age_bins': np.float64(1.0), 'soporte': np.float64(0.01)}
+Mejor precisión: nan
+
+
+
+ME DIO ERROR Y DESPUES CONSEGUI ARREGLARLO
+
+0.6771300448430493
+Soporte, Confianza, edades: 0.01, 0.7, 1.0
+0.7752808988764045
+Soporte, Confianza, edades: 0.1, 0.7, 1.0
+0.7982062780269058
+Soporte, Confianza, edades: 0.1, 0.7, 1.0
+0.7280898876404495
+Soporte, Confianza, edades: 0.01, 0.7, 20.0
+0.625560538116592
+Soporte, Confianza, edades: 0.01, 0.7, 20.0
+0.7752808988764045
+Soporte, Confianza, edades: 0.1, 0.7, 20.0
+0.7982062780269058
+Soporte, Confianza, edades: 0.1, 0.7, 20.0
+0.7258426966292135
+Soporte, Confianza, edades: 0.01, 0.95, 1.0
+0.7488789237668162
+Soporte, Confianza, edades: 0.01, 0.95, 1.0
+0.7258426966292135
+Soporte, Confianza, edades: 0.1, 0.95, 1.0
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.95, 1.0
+0.7258426966292135
+Soporte, Confianza, edades: 0.01, 0.95, 20.0
+0.7488789237668162
+Soporte, Confianza, edades: 0.01, 0.95, 20.0
+0.7258426966292135
+Soporte, Confianza, edades: 0.1, 0.95, 20.0
+0.7040358744394619
+Soporte, Confianza, edades: 0.1, 0.95, 20.0
+0.7867564534231201
+Mejores hiperparámetros:
+{'confianza': np.float64(0.7), 'n_age_bins': np.float64(20.0), 'soporte': np.float64(0.1)}
+Mejor precisión: 0.79
+
+
+---Pruebas con confianza 0.825 y soporte 0.01
+los bins igual que el mejor resultado hasta ahora de 0.81 pero variando los rangos de edades
+
+Resultados para 1 intervalo de edades: (np.float64(0.7486033519553073), np.int64(15), np.int64(30))
+Resultados para 2 intervalo de edades: (np.float64(0.7486033519553073), np.int64(16), np.int64(29))
+Resultados para 3 intervalo de edades: (np.float64(0.7541899441340782), np.int64(18), np.int64(26))
+Resultados para 4 intervalo de edades: (np.float64(0.7653631284916201), np.int64(24), np.int64(18))
+Resultados para 5 intervalo de edades: (np.float64(0.770949720670391), np.int64(18), np.int64(23))
+Resultados para 6 intervalo de edades: (np.float64(0.7541899441340782), np.int64(21), np.int64(23))
+Resultados para 7 intervalo de edades: (np.float64(0.7486033519553073), np.int64(19), np.int64(26))
+Resultados para 8 intervalo de edades: (np.float64(0.7821229050279329), np.int64(22), np.int64(17))
+Resultados para 9 intervalo de edades: (np.float64(0.7932960893854749), np.int64(20), np.int64(17))
+Resultados para 10 intervalo de edades: (np.float64(0.7374301675977654), np.int64(20), np.int64(27))
+Resultados para 11 intervalo de edades: (np.float64(0.7486033519553073), np.int64(25), np.int64(20))
+Resultados para 12 intervalo de edades: (np.float64(0.7932960893854749), np.int64(18), np.int64(19))
+Resultados para 13 intervalo de edades: (np.float64(0.770949720670391), np.int64(20), np.int64(21))
+Resultados para 14 intervalo de edades: (np.float64(0.7988826815642458), np.int64(18), np.int64(18))
+Resultados para 15 intervalo de edades: (np.float64(0.776536312849162), np.int64(21), np.int64(19))
+Resultados para 16 intervalo de edades: (np.float64(0.776536312849162), np.int64(22), np.int64(18))
+Resultados para 17 intervalo de edades: (np.float64(0.7374301675977654), np.int64(20), np.int64(27))
+Resultados para 18 intervalo de edades: (np.float64(0.7932960893854749), np.int64(20), np.int64(17))
+Resultados para 19 intervalo de edades: (np.float64(0.8212290502793296), np.int64(18), np.int64(14))
+Resultados para 20 intervalo de edades: (np.float64(0.7430167597765364), np.int64(24), np.int64(22))
+
+
+
+----Resultados de GridSearchCV para el siguiente grid:
+'confianza': np.linspace(0.8, 0.95, 4),  # [0.8, 0.85, 0.90, 0.95]
+'soporte': np.linspace(0.005, 0.1, 4), # 0.005 corresponde a aproximadamente 3/594  [0.005, 0.0366, 0.6833, 0.1]
+'n_age_bins': np.linspace(5, 20, 4), # [5, 10, 15, 20]
+
+Media: 0.8165
+Acierto del 0.82997. Para el Soporte, Confianza y Edades: 0.005, 0.9, 10.0
+Acierto del 0.80808. Para el Soporte, Confianza y Edades: 0.005, 0.9, 10.0
+Acierto del 0.81145. Para el Soporte, Confianza y Edades: 0.005, 0.9, 10.0
+
+Media: 0.8131333333333334
+Acierto del 0.81818. Para el Soporte, Confianza y Edades: 0.005, 0.9, 15.0
+Acierto del 0.80135. Para el Soporte, Confianza y Edades: 0.005, 0.9, 15.0
+Acierto del 0.81987. Para el Soporte, Confianza y Edades: 0.005, 0.9, 15.0
+
+Media: 0.8047133333333334
+Acierto del 0.79630. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 5.0
+Acierto del 0.79966. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 5.0
+Acierto del 0.81818. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 5.0
+
+Media: 0.8047133333333334
+Acierto del 0.79798. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 15.0
+Acierto del 0.79966. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 15.0
+Acierto del 0.81650. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 15.0
+
+Media: 0.8047133333333334
+Acierto del 0.80135. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 20.0
+Acierto del 0.79966. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 20.0
+Acierto del 0.81313. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 20.0
+
+Media: 0.8035933333333333
+Acierto del 0.80135. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 15.0
+Acierto del 0.79125. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 15.0
+Acierto del 0.81818. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 15.0
+
+Media: 0.8030333333333334
+Acierto del 0.80135. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 5.0
+Acierto del 0.79125. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 5.0
+Acierto del 0.81650. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 5.0
+
+Media: 0.8030333333333334
+Acierto del 0.80135. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 10.0
+Acierto del 0.79125. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 10.0
+Acierto del 0.81650. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 10.0
+
+Media: 0.80191
+Acierto del 0.80303. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 20.0
+Acierto del 0.78620. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 20.0
+Acierto del 0.81650. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 20.0
+
+Media: 0.80022
+Acierto del 0.81481. Para el Soporte, Confianza y Edades: 0.005, 0.9, 20.0
+Acierto del 0.78114. Para el Soporte, Confianza y Edades: 0.005, 0.9, 20.0
+Acierto del 0.80471. Para el Soporte, Confianza y Edades: 0.005, 0.9, 20.0
+
+Media: 0.7996633333333333
+Acierto del 0.79798. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 10.0
+Acierto del 0.78620. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 10.0
+Acierto del 0.81481. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 10.0
+
+Media: 0.7974200000000001
+Acierto del 0.79966. Para el Soporte, Confianza y Edades: 0.005, 0.9, 5.0
+Acierto del 0.78620. Para el Soporte, Confianza y Edades: 0.005, 0.9, 5.0
+Acierto del 0.80640. Para el Soporte, Confianza y Edades: 0.005, 0.9, 5.0
+
+Media: 0.7951733333333334
+Acierto del 0.80640. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 15.0
+Acierto del 0.78956. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 15.0
+Acierto del 0.78956. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 15.0
+
+Media: 0.7934933333333333
+Acierto del 0.80640. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 20.0
+Acierto del 0.78788. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 20.0
+Acierto del 0.78620. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 20.0
+
+Media: 0.79293
+Acierto del 0.80640. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 5.0
+Acierto del 0.78788. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 5.0
+Acierto del 0.78451. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 5.0
+
+Media: 0.79237
+Acierto del 0.80640. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 10.0
+Acierto del 0.78620. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 10.0
+Acierto del 0.78451. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 10.0
+
+Media: 0.7918066666666667
+Acierto del 0.79293. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 5.0
+Acierto del 0.78956. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 5.0
+Acierto del 0.79293. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 5.0
+
+Media: 0.7906833333333333
+Acierto del 0.79798. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 15.0
+Acierto del 0.78114. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 15.0
+Acierto del 0.79293. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 15.0
+
+Media: 0.78788
+Acierto del 0.79798. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 20.0
+Acierto del 0.77273. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 20.0
+Acierto del 0.79293. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 20.0
+
+Media: 0.7839533333333334
+Acierto del 0.79630. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 10.0
+Acierto del 0.76263. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 10.0
+Acierto del 0.79293. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 10.0
+
+Media: 0.7833899999999999
+Acierto del 0.78114. Para el Soporte, Confianza y Edades: 0.005, 0.85, 20.0
+Acierto del 0.80640. Para el Soporte, Confianza y Edades: 0.005, 0.85, 20.0
+Acierto del 0.76263. Para el Soporte, Confianza y Edades: 0.005, 0.85, 20.0
+
+Media: 0.7811433333333334
+Acierto del 0.77778. Para el Soporte, Confianza y Edades: 0.005, 0.85, 10.0
+Acierto del 0.79461. Para el Soporte, Confianza y Edades: 0.005, 0.85, 10.0
+Acierto del 0.77104. Para el Soporte, Confianza y Edades: 0.005, 0.85, 10.0
+
+Media: 0.7811433333333334
+Acierto del 0.77441. Para el Soporte, Confianza y Edades: 0.005, 0.85, 15.0
+Acierto del 0.77441. Para el Soporte, Confianza y Edades: 0.005, 0.85, 15.0
+Acierto del 0.79461. Para el Soporte, Confianza y Edades: 0.005, 0.85, 15.0
+
+Media: 0.77834
+Acierto del 0.77778. Para el Soporte, Confianza y Edades: 0.005, 0.85, 5.0
+Acierto del 0.77778. Para el Soporte, Confianza y Edades: 0.005, 0.85, 5.0
+Acierto del 0.77946. Para el Soporte, Confianza y Edades: 0.005, 0.85, 5.0
+
+Media: 0.77385
+Acierto del 0.80640. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 5.0
+Acierto del 0.72559. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 5.0
+Acierto del 0.78956. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 5.0
+
+Media: 0.77385
+Acierto del 0.80640. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 10.0
+Acierto del 0.72559. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 10.0
+Acierto del 0.78956. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 10.0
+
+Media: 0.77385
+Acierto del 0.80640. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 15.0
+Acierto del 0.72559. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 15.0
+Acierto del 0.78956. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 15.0
+
+Media: 0.77385
+Acierto del 0.80640. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 20.0
+Acierto del 0.72559. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 20.0
+Acierto del 0.78956. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 20.0
+
+Media: 0.7732899999999999
+Acierto del 0.80640. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 15.0
+Acierto del 0.72559. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 15.0
+Acierto del 0.78788. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 15.0
+
+Media: 0.7732899999999999
+Acierto del 0.80640. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 20.0
+Acierto del 0.72559. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 20.0
+Acierto del 0.78788. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 20.0
+
+Media: 0.77273
+Acierto del 0.80640. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 5.0
+Acierto del 0.72559. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 5.0
+Acierto del 0.78620. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 5.0
+
+Media: 0.77273
+Acierto del 0.80640. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 10.0
+Acierto del 0.72559. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 10.0
+Acierto del 0.78620. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 10.0
+
+Media: 0.7300800000000001
+Acierto del 0.75758. Para el Soporte, Confianza y Edades: 0.005, 0.95, 5.0
+Acierto del 0.72727. Para el Soporte, Confianza y Edades: 0.005, 0.95, 5.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.005, 0.95, 5.0
+
+Media: 0.7283966666666667
+Acierto del 0.75253. Para el Soporte, Confianza y Edades: 0.005, 0.95, 10.0
+Acierto del 0.72727. Para el Soporte, Confianza y Edades: 0.005, 0.95, 10.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.005, 0.95, 10.0
+
+Media: 0.7261533333333334
+Acierto del 0.73401. Para el Soporte, Confianza y Edades: 0.005, 0.8, 5.0
+Acierto del 0.71549. Para el Soporte, Confianza y Edades: 0.005, 0.8, 5.0
+Acierto del 0.72896. Para el Soporte, Confianza y Edades: 0.005, 0.8, 5.0
+
+Media: 0.7205400000000001
+Acierto del 0.73064. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 5.0
+Acierto del 0.72559. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 5.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 5.0
+
+Media: 0.71998
+Acierto del 0.72896. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 10.0
+Acierto del 0.72559. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 10.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 10.0
+
+Media: 0.71998
+Acierto del 0.72896. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 15.0
+Acierto del 0.72559. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 15.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 15.0
+
+Media: 0.71998
+Acierto del 0.72896. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 20.0
+Acierto del 0.72559. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 20.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 20.0
+
+Media: 0.7199766666666667
+Acierto del 0.72727. Para el Soporte, Confianza y Edades: 0.005, 0.95, 15.0
+Acierto del 0.72727. Para el Soporte, Confianza y Edades: 0.005, 0.95, 15.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.005, 0.95, 15.0
+
+Media: 0.7199766666666667
+Acierto del 0.72727. Para el Soporte, Confianza y Edades: 0.005, 0.95, 20.0
+Acierto del 0.72727. Para el Soporte, Confianza y Edades: 0.005, 0.95, 20.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.005, 0.95, 20.0
+
+Media: 0.7171733333333333
+Acierto del 0.73401. Para el Soporte, Confianza y Edades: 0.005, 0.8, 15.0
+Acierto del 0.70034. Para el Soporte, Confianza y Edades: 0.005, 0.8, 15.0
+Acierto del 0.71717. Para el Soporte, Confianza y Edades: 0.005, 0.8, 15.0
+
+Media: 0.7166100000000001
+Acierto del 0.73906. Para el Soporte, Confianza y Edades: 0.005, 0.8, 10.0
+Acierto del 0.70707. Para el Soporte, Confianza y Edades: 0.005, 0.8, 10.0
+Acierto del 0.70370. Para el Soporte, Confianza y Edades: 0.005, 0.8, 10.0
+
+Media: 0.7160466666666666
+Acierto del 0.74747. Para el Soporte, Confianza y Edades: 0.005, 0.8, 20.0
+Acierto del 0.70370. Para el Soporte, Confianza y Edades: 0.005, 0.8, 20.0
+Acierto del 0.69697. Para el Soporte, Confianza y Edades: 0.005, 0.8, 20.0
+
+Media: 0.7149266666666666
+Acierto del 0.71380. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 5.0
+Acierto del 0.72559. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 5.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 5.0
+
+Media: 0.7149266666666666
+Acierto del 0.71380. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 10.0
+Acierto del 0.72559. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 10.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 10.0
+
+Media: 0.7149266666666666
+Acierto del 0.71380. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 15.0
+Acierto del 0.72559. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 15.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 15.0
+
+Media: 0.7138
+Acierto del 0.71380. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 20.0
+Acierto del 0.71380. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 20.0
+Acierto del 0.71380. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 20.0
+
+Media: 0.7093166666666667
+Acierto del 0.78283. Para el Soporte, Confianza y Edades: 0.1, 0.8, 10.0
+Acierto del 0.63973. Para el Soporte, Confianza y Edades: 0.1, 0.8, 10.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.1, 0.8, 10.0
+
+Media: 0.7087533333333332
+Acierto del 0.78114. Para el Soporte, Confianza y Edades: 0.1, 0.8, 5.0
+Acierto del 0.63973. Para el Soporte, Confianza y Edades: 0.1, 0.8, 5.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.1, 0.8, 5.0
+
+Media: 0.7087533333333332
+Acierto del 0.78114. Para el Soporte, Confianza y Edades: 0.1, 0.8, 15.0
+Acierto del 0.63973. Para el Soporte, Confianza y Edades: 0.1, 0.8, 15.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.1, 0.8, 15.0
+
+Media: 0.7081933333333333
+Acierto del 0.77946. Para el Soporte, Confianza y Edades: 0.1, 0.8, 20.0
+Acierto del 0.63973. Para el Soporte, Confianza y Edades: 0.1, 0.8, 20.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.1, 0.8, 20.0
+
+Media: 0.6863066666666667
+Acierto del 0.71380. Para el Soporte, Confianza y Edades: 0.1, 0.85, 5.0
+Acierto del 0.63973. Para el Soporte, Confianza y Edades: 0.1, 0.85, 5.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.1, 0.85, 5.0
+
+Media: 0.6863066666666667
+Acierto del 0.71380. Para el Soporte, Confianza y Edades: 0.1, 0.85, 10.0
+Acierto del 0.63973. Para el Soporte, Confianza y Edades: 0.1, 0.85, 10.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.1, 0.85, 10.0
+
+Media: 0.6863066666666667
+Acierto del 0.71380. Para el Soporte, Confianza y Edades: 0.1, 0.85, 15.0
+Acierto del 0.63973. Para el Soporte, Confianza y Edades: 0.1, 0.85, 15.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.1, 0.85, 15.0
+
+Media: 0.6863066666666667
+Acierto del 0.71380. Para el Soporte, Confianza y Edades: 0.1, 0.85, 20.0
+Acierto del 0.63973. Para el Soporte, Confianza y Edades: 0.1, 0.85, 20.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.1, 0.85, 20.0
+
+Media: 0.6863066666666667
+Acierto del 0.71380. Para el Soporte, Confianza y Edades: 0.1, 0.9, 5.0
+Acierto del 0.63973. Para el Soporte, Confianza y Edades: 0.1, 0.9, 5.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.1, 0.9, 5.0
+
+Media: 0.6863066666666667
+Acierto del 0.71380. Para el Soporte, Confianza y Edades: 0.1, 0.9, 10.0
+Acierto del 0.63973. Para el Soporte, Confianza y Edades: 0.1, 0.9, 10.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.1, 0.9, 10.0
+
+Media: 0.6863066666666667
+Acierto del 0.71380. Para el Soporte, Confianza y Edades: 0.1, 0.9, 15.0
+Acierto del 0.63973. Para el Soporte, Confianza y Edades: 0.1, 0.9, 15.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.1, 0.9, 15.0
+
+Media: 0.6863066666666667
+Acierto del 0.71380. Para el Soporte, Confianza y Edades: 0.1, 0.9, 20.0
+Acierto del 0.63973. Para el Soporte, Confianza y Edades: 0.1, 0.9, 20.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.1, 0.9, 20.0
+
+Media: 0.6863066666666667
+Acierto del 0.71380. Para el Soporte, Confianza y Edades: 0.1, 0.95, 5.0
+Acierto del 0.63973. Para el Soporte, Confianza y Edades: 0.1, 0.95, 5.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.1, 0.95, 5.0
+
+Media: 0.6863066666666667
+Acierto del 0.71380. Para el Soporte, Confianza y Edades: 0.1, 0.95, 10.0
+Acierto del 0.63973. Para el Soporte, Confianza y Edades: 0.1, 0.95, 10.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.1, 0.95, 10.0
+
+Media: 0.6863066666666667
+Acierto del 0.71380. Para el Soporte, Confianza y Edades: 0.1, 0.95, 15.0
+Acierto del 0.63973. Para el Soporte, Confianza y Edades: 0.1, 0.95, 15.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.1, 0.95, 15.0
+
+
+
+-------------------Añadiendo base Stem
+age_bins = [0, 18, 35, 55, 100]
+fare_bins = [0., 50., 100., 200., 513.]
+sibsp_bins = [0, 1, 5, float('inf')]
+parch_bins = [0, 1, 5, float('inf')]
+
+#Solo base Stem
+Ratio de acierto: 0.73
+Falsos positivos: 12  <- Estos falsos positivos no se pueden corregir 
+Falsos negativos: 36
+Proceso completado.
+
+Por lo que solo podré tener una accuracy de (179-12)/179 = 93% 
+93% en el caso de que la base de Luxenburger logre crear implicaciones que solo solucionen los falsos negativos
+
+
+
+#Con Luxen conf 0.85, supp 32/712
+Número de datos de entrenamiento: 712
+Número de datos de prueba: 179
+Base Stem creada con 453 implicaciones.
+Base de Luxenburger con confianza 0.85 y soporte 32.0/712.
+Base de Luxenburger creada con 418 implicaciones.
+Base completa creada con 871 implicaciones.
+Ratio de acierto: 0.66
+Falsos positivos: 43
+Falsos negativos: 17
+Proceso completado.
+
+
+#Con luxen 90%, 64/712
+Ratio de acierto: 0.63
+Falsos positivos: 34
+Falsos negativos: 32
+Proceso completado.
+
+#Con Luxen 95%, 32/712
+Ratio de acierto: 0.70
+Falsos positivos: 19
+Falsos negativos: 35
+Proceso completado.
+
+#Con Luxen 95%, 16/712
+203
+Ratio de acierto: 0.71
+Falsos positivos: 20
+Falsos negativos: 32
+Proceso completado.
+
+Confianza: 0.95
+Soporte: 8.0/712
+Implicaciones de la base de Luxenburger:203
+Ratio de acierto: 0.71
+Falsos positivos: 20
+Falsos negativos: 32
+Proceso completado.
+
+Confianza: 0.94
+Soporte: 32.0/712
+Implicaciones de la base de Luxenburger:153
+Ratio de acierto: 0.69
+Falsos positivos: 20
+Falsos negativos: 35
+Proceso completado.
+
+Confianza: 0.99
+Soporte: 32.0/712
+Implicaciones de la base de Luxenburger:2
+Ratio de acierto: 0.73
+Falsos positivos: 12
+Falsos negativos: 36
+Proceso completado.
+
+Confianza: 0.80
+Soporte: 32.0/712
+Implicaciones de la base de Luxenburger:578
+Ratio de acierto: 0.65
+Falsos positivos: 49
+Falsos negativos: 13
+Proceso completado.
+
+Confianza: 0.75
+Soporte: 32.0/712
+Implicaciones de la base de Luxenburger:853
+Ratio de acierto: 0.53
+Falsos positivos: 73
+Falsos negativos: 11
+Proceso completado.
+
+Confianza: 0.98
+Soporte: 32.0/712
+Implicaciones de la base de Luxenburger:15
+Ratio de acierto: 0.71
+Falsos positivos: 16
+Falsos negativos: 36
+Proceso completado.
+
+
+---------añadido ajusteHiperparametros3.0 para hacerlo con la Base Stem
+Acierto del 0.67340. Para el Soporte, Confianza y Edades: 0.005, 0.8, 3.0
+Acierto del 0.63636. Para el Soporte, Confianza y Edades: 0.005, 0.8, 3.0
+Acierto del 0.64141. Para el Soporte, Confianza y Edades: 0.005, 0.8, 3.0
+Acierto del 0.67340. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 3.0
+Acierto del 0.63636. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 3.0
+Acierto del 0.64141. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 3.0
+Acierto del 0.67340. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 3.0
+Acierto del 0.62626. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 3.0
+Acierto del 0.61953. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 3.0
+Acierto del 0.66162. Para el Soporte, Confianza y Edades: 0.1, 0.8, 3.0
+Acierto del 0.62795. Para el Soporte, Confianza y Edades: 0.1, 0.8, 3.0
+Acierto del 0.61111. Para el Soporte, Confianza y Edades: 0.1, 0.8, 3.0
+
+
+
+#INTENTO BUENO:
+Solo base Stem. Acierto del 0.81313. Para Edades: 3.0
+Acierto del 0.67340. Para el Soporte, Confianza y Edades: 0.005, 0.8, 3.0
+Acierto del 0.63636. Para el Soporte, Confianza y Edades: 0.005, 0.8, 3.0
+Acierto del 0.64141. Para el Soporte, Confianza y Edades: 0.005, 0.8, 3.0
+Acierto del 0.67340. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 3.0
+Acierto del 0.63636. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 3.0
+Acierto del 0.64141. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 3.0
+Acierto del 0.67340. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 3.0
+Acierto del 0.62626. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 3.0
+Acierto del 0.61953. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 3.0
+Acierto del 0.66162. Para el Soporte, Confianza y Edades: 0.1, 0.8, 3.0
+Acierto del 0.62795. Para el Soporte, Confianza y Edades: 0.1, 0.8, 3.0
+Acierto del 0.61111. Para el Soporte, Confianza y Edades: 0.1, 0.8, 3.0
+Solo base Stem. Acierto del 0.79966. Para Edades: 4.0
+Acierto del 0.70707. Para el Soporte, Confianza y Edades: 0.005, 0.8, 4.0
+Acierto del 0.64815. Para el Soporte, Confianza y Edades: 0.005, 0.8, 4.0
+Acierto del 0.65825. Para el Soporte, Confianza y Edades: 0.005, 0.8, 4.0
+Acierto del 0.70707. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 4.0
+Acierto del 0.64815. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 4.0
+Acierto del 0.65825. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 4.0
+Acierto del 0.70875. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 4.0
+Acierto del 0.64815. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 4.0
+Acierto del 0.65825. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 4.0
+Acierto del 0.70875. Para el Soporte, Confianza y Edades: 0.1, 0.8, 4.0
+Acierto del 0.65488. Para el Soporte, Confianza y Edades: 0.1, 0.8, 4.0
+Acierto del 0.65825. Para el Soporte, Confianza y Edades: 0.1, 0.8, 4.0
+Solo base Stem. Acierto del 0.81818. Para Edades: 5.0
+Acierto del 0.71212. Para el Soporte, Confianza y Edades: 0.005, 0.8, 5.0
+Acierto del 0.67003. Para el Soporte, Confianza y Edades: 0.005, 0.8, 5.0
+Acierto del 0.63131. Para el Soporte, Confianza y Edades: 0.005, 0.8, 5.0
+Acierto del 0.71212. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 5.0
+Acierto del 0.67172. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 5.0
+Acierto del 0.63131. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.8, 5.0
+Acierto del 0.71717. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 5.0
+Acierto del 0.67172. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 5.0
+Acierto del 0.61953. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.8, 5.0
+Acierto del 0.72391. Para el Soporte, Confianza y Edades: 0.1, 0.8, 5.0
+Acierto del 0.68182. Para el Soporte, Confianza y Edades: 0.1, 0.8, 5.0
+Acierto del 0.62458. Para el Soporte, Confianza y Edades: 0.1, 0.8, 5.0
+Acierto del 0.72896. Para el Soporte, Confianza y Edades: 0.005, 0.85, 3.0
+Acierto del 0.61953. Para el Soporte, Confianza y Edades: 0.005, 0.85, 3.0
+Acierto del 0.64141. Para el Soporte, Confianza y Edades: 0.005, 0.85, 3.0
+Acierto del 0.72896. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 3.0
+Acierto del 0.61785. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 3.0
+Acierto del 0.64141. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 3.0
+Acierto del 0.72896. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 3.0
+Acierto del 0.59764. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 3.0
+Acierto del 0.61953. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 3.0
+Acierto del 0.70370. Para el Soporte, Confianza y Edades: 0.1, 0.85, 3.0
+Acierto del 0.60606. Para el Soporte, Confianza y Edades: 0.1, 0.85, 3.0
+Acierto del 0.59428. Para el Soporte, Confianza y Edades: 0.1, 0.85, 3.0
+Acierto del 0.71886. Para el Soporte, Confianza y Edades: 0.005, 0.85, 4.0
+Acierto del 0.66667. Para el Soporte, Confianza y Edades: 0.005, 0.85, 4.0
+Acierto del 0.65993. Para el Soporte, Confianza y Edades: 0.005, 0.85, 4.0
+Acierto del 0.71886. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 4.0
+Acierto del 0.66667. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 4.0
+Acierto del 0.65993. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 4.0
+Acierto del 0.72054. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 4.0
+Acierto del 0.65657. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 4.0
+Acierto del 0.63805. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 4.0
+Acierto del 0.72896. Para el Soporte, Confianza y Edades: 0.1, 0.85, 4.0
+Acierto del 0.65657. Para el Soporte, Confianza y Edades: 0.1, 0.85, 4.0
+Acierto del 0.61616. Para el Soporte, Confianza y Edades: 0.1, 0.85, 4.0
+Acierto del 0.71549. Para el Soporte, Confianza y Edades: 0.005, 0.85, 5.0
+Acierto del 0.65825. Para el Soporte, Confianza y Edades: 0.005, 0.85, 5.0
+Acierto del 0.66162. Para el Soporte, Confianza y Edades: 0.005, 0.85, 5.0
+Acierto del 0.71549. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 5.0
+Acierto del 0.65993. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 5.0
+Acierto del 0.66162. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.85, 5.0
+Acierto del 0.72222. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 5.0
+Acierto del 0.65825. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 5.0
+Acierto del 0.64646. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.85, 5.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.1, 0.85, 5.0
+Acierto del 0.66667. Para el Soporte, Confianza y Edades: 0.1, 0.85, 5.0
+Acierto del 0.61953. Para el Soporte, Confianza y Edades: 0.1, 0.85, 5.0
+Acierto del 0.74916. Para el Soporte, Confianza y Edades: 0.005, 0.9, 3.0
+Acierto del 0.69865. Para el Soporte, Confianza y Edades: 0.005, 0.9, 3.0
+Acierto del 0.70875. Para el Soporte, Confianza y Edades: 0.005, 0.9, 3.0
+Acierto del 0.75084. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 3.0
+Acierto del 0.70202. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 3.0
+Acierto del 0.70370. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 3.0
+Acierto del 0.75084. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 3.0
+Acierto del 0.69192. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 3.0
+Acierto del 0.70370. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 3.0
+Acierto del 0.72727. Para el Soporte, Confianza y Edades: 0.1, 0.9, 3.0
+Acierto del 0.70202. Para el Soporte, Confianza y Edades: 0.1, 0.9, 3.0
+Acierto del 0.69192. Para el Soporte, Confianza y Edades: 0.1, 0.9, 3.0
+Acierto del 0.74579. Para el Soporte, Confianza y Edades: 0.005, 0.9, 4.0
+Acierto del 0.70370. Para el Soporte, Confianza y Edades: 0.005, 0.9, 4.0
+Acierto del 0.72391. Para el Soporte, Confianza y Edades: 0.005, 0.9, 4.0
+Acierto del 0.74242. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 4.0
+Acierto del 0.70034. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 4.0
+Acierto del 0.71212. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 4.0
+Acierto del 0.74747. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 4.0
+Acierto del 0.68013. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 4.0
+Acierto del 0.71212. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 4.0
+Acierto del 0.71549. Para el Soporte, Confianza y Edades: 0.1, 0.9, 4.0
+Acierto del 0.67677. Para el Soporte, Confianza y Edades: 0.1, 0.9, 4.0
+Acierto del 0.68519. Para el Soporte, Confianza y Edades: 0.1, 0.9, 4.0
+Acierto del 0.75084. Para el Soporte, Confianza y Edades: 0.005, 0.9, 5.0
+Acierto del 0.69697. Para el Soporte, Confianza y Edades: 0.005, 0.9, 5.0
+Acierto del 0.69360. Para el Soporte, Confianza y Edades: 0.005, 0.9, 5.0
+Acierto del 0.75589. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 5.0
+Acierto del 0.69865. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 5.0
+Acierto del 0.70707. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 5.0
+Acierto del 0.75758. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 5.0
+Acierto del 0.68687. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 5.0
+Acierto del 0.70875. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.9, 5.0
+Acierto del 0.73569. Para el Soporte, Confianza y Edades: 0.1, 0.9, 5.0
+Acierto del 0.68519. Para el Soporte, Confianza y Edades: 0.1, 0.9, 5.0
+Acierto del 0.68350. Para el Soporte, Confianza y Edades: 0.1, 0.9, 5.0
+Acierto del 0.79461. Para el Soporte, Confianza y Edades: 0.005, 0.95, 3.0
+Acierto del 0.73737. Para el Soporte, Confianza y Edades: 0.005, 0.95, 3.0
+Acierto del 0.71212. Para el Soporte, Confianza y Edades: 0.005, 0.95, 3.0
+Acierto del 0.79125. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 3.0
+Acierto del 0.73737. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 3.0
+Acierto del 0.71212. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 3.0
+Acierto del 0.78283. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 3.0
+Acierto del 0.74074. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 3.0
+Acierto del 0.71549. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 3.0
+Acierto del 0.78620. Para el Soporte, Confianza y Edades: 0.1, 0.95, 3.0
+Acierto del 0.74579. Para el Soporte, Confianza y Edades: 0.1, 0.95, 3.0
+Acierto del 0.71886. Para el Soporte, Confianza y Edades: 0.1, 0.95, 3.0
+Acierto del 0.77609. Para el Soporte, Confianza y Edades: 0.005, 0.95, 4.0
+Acierto del 0.74074. Para el Soporte, Confianza y Edades: 0.005, 0.95, 4.0
+Acierto del 0.71717. Para el Soporte, Confianza y Edades: 0.005, 0.95, 4.0
+Acierto del 0.76936. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 4.0
+Acierto del 0.74074. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 4.0
+Acierto del 0.71717. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 4.0
+Acierto del 0.76936. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 4.0
+Acierto del 0.74411. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 4.0
+Acierto del 0.71886. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 4.0
+Acierto del 0.77273. Para el Soporte, Confianza y Edades: 0.1, 0.95, 4.0
+Acierto del 0.74242. Para el Soporte, Confianza y Edades: 0.1, 0.95, 4.0
+Acierto del 0.71886. Para el Soporte, Confianza y Edades: 0.1, 0.95, 4.0
+Acierto del 0.79293. Para el Soporte, Confianza y Edades: 0.005, 0.95, 5.0
+Acierto del 0.73906. Para el Soporte, Confianza y Edades: 0.005, 0.95, 5.0
+Acierto del 0.70370. Para el Soporte, Confianza y Edades: 0.005, 0.95, 5.0
+Acierto del 0.77609. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 5.0
+Acierto del 0.73906. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 5.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.95, 5.0
+Acierto del 0.77609. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 5.0
+Acierto del 0.74074. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 5.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.06833333333333334, 0.95, 5.0
+Acierto del 0.78451. Para el Soporte, Confianza y Edades: 0.1, 0.95, 5.0
+Acierto del 0.74074. Para el Soporte, Confianza y Edades: 0.1, 0.95, 5.0
+Acierto del 0.70539. Para el Soporte, Confianza y Edades: 0.1, 0.95, 5.0
+Acierto del 0.72054. Para el Soporte, Confianza y Edades: 0.03666666666666667, 0.9, 5.0
+
+Mejores hiperpar�metros:
+{'confianza': np.float64(0.9), 'n_age_bins': np.float64(5.0), 'soporte': np.float64(0.03666666666666667)}
+Mejor precisi�n: 0.7373737373737373
+
+
+
+------------ANTIGUA BASE STEM
+def calcular_base_stem(self):
+        """Calcula la base Stem de un contexto formal como lista de tuplas de conjuntos de atributos."""
+        pseudointenciones = []  # Lista de pseudointenciones como tuplas de atributos
+        atributos = self.properties  # Atributos del contexto como tupla
+        for i in range(len(atributos) + 1):
+            pseudointencionesAux = []
+            for comb in combinations(atributos, i):  # Recorro todas las combinaciones de i atributos
+                pseudoIntSet = set(comb)  # Creo un conjunto con la combinación actual
+                if pseudoIntSet != set(self.intension(self.extension(comb))):  # P=/P''
+                    valido = True
+                    for subIntSet in pseudointenciones:  # Recorro las pseudointenciones ya calculadas
+                        if subIntSet.issubset(pseudoIntSet):  # Verifico si Q'' está contenido en P
+                            subIntppSet = set(self.intension(self.extension(subIntSet)))
+                            if not subIntppSet.issubset(pseudoIntSet):
+                                valido = False
+                                break
+                    if valido:
+                        pseudointencionesAux.append(pseudoIntSet)
+            pseudointenciones.extend(pseudointencionesAux)
+        self.base_stem = [(p, set(self.intension(self.extension(p))) - p) for p in pseudointenciones]
+        return self.base_stem
+
+
+
+-----------Antigua base luxenburger
+def calcular_base_luxenburger(self):
+        """Calcula la base de Luxenburger de un contexto formal como lista de tuplas de conjuntos de atributos."""
+        base_luxenburger = []
+        visitados = set()
+
+        def aux_base_luxenburger(concepto_actual):
+            """Auxiliar para recorrer cada nodo del retículo del contexto formal."""
+            if concepto_actual in visitados: # Si el concepto actual ya fue visitado, no hacer nada
+                return
+            visitados.add(concepto_actual)
+            for vecino in self.neighbors(concepto_actual[0]): # Recorrer los vecinos del concepto actual
+                intencionVecino = set(vecino[1])
+                intencionActual = set(concepto_actual[1])
+                implicacion = (intencionVecino, intencionActual - intencionVecino)
+                conf_Implicacion = self.confianza_implicacion(implicacion)
+                sop_Implicacion = self.soporte_implicacion(implicacion)
+                if sop_Implicacion >= self.soporte and conf_Implicacion >= self.confianza: # Si la implicación es frecuente, agregarla a la base de Luxenburger
+                    base_luxenburger.append((implicacion, conf_Implicacion, sop_Implicacion))
+                aux_base_luxenburger(vecino)
+
+        atributos = self.properties
+        aux_base_luxenburger((self.extension(atributos), atributos))
+        self.base_luxenburger = base_luxenburger
+        return self.base_luxenburger
+
+
+
+
+----------------Ajuste de hiperparametros4 añadido para el calculo de complejidades
+fare_bins = [0., 50., 100., 200., 513.]
+sibsp_bins = [0, 1, 5, float('inf')]
+parch_bins = [0, 1, 5, float('inf')]
+confianza: 0.95 y soporte: 0.005
+
+Solo base Stem. Acierto del 0.81313. Para Edades: 3
+Acierto del 0.79461. Edades: 3. Tamano bases: 327, 200 y 527. Tiempo 87.325292
+Acierto del 0.73737. Edades: 3. Tamano bases: 327, 124 y 451. Tiempo 80.109299
+Acierto del 0.71212. Edades: 3. Tamano bases: 327, 182 y 509. Tiempo 88.454094
+Solo base Stem. Acierto del 0.79966. Para Edades: 4
+Acierto del 0.77609. Edades: 4. Tamano bases: 422, 165 y 587. Tiempo 92.859136
+Acierto del 0.74074. Edades: 4. Tamano bases: 422, 121 y 543. Tiempo 96.278185
+Acierto del 0.71717. Edades: 4. Tamano bases: 422, 177 y 599. Tiempo 99.091284
+Solo base Stem. Acierto del 0.81818. Para Edades: 5
+Acierto del 0.79293. Edades: 5. Tamano bases: 480, 181 y 661. Tiempo 101.980261
+Acierto del 0.73906. Edades: 5. Tamano bases: 480, 119 y 599. Tiempo 88.657604
+Acierto del 0.70370. Edades: 5. Tamano bases: 480, 187 y 667. Tiempo 92.036590
+Solo base Stem. Acierto del 0.83502. Para Edades: 6
+Acierto del 0.79461. Edades: 6. Tamano bases: 494, 181 y 675. Tiempo 94.675738
+Acierto del 0.75758. Edades: 6. Tamano bases: 494, 148 y 642. Tiempo 92.052170
+Acierto del 0.72222. Edades: 6. Tamano bases: 494, 186 y 680. Tiempo 92.245243
+Solo base Stem. Acierto del 0.84680. Para Edades: 7
+Acierto del 0.79966. Edades: 7. Tamano bases: 532, 201 y 733. Tiempo 100.662497
+Acierto del 0.76599. Edades: 7. Tamano bases: 532, 149 y 681. Tiempo 98.197425
+Acierto del 0.74747. Edades: 7. Tamano bases: 532, 194 y 726. Tiempo 95.164247
+Solo base Stem. Acierto del 0.85185. Para Edades: 8
+Acierto del 0.80135. Edades: 8. Tamano bases: 583, 177 y 760. Tiempo 102.105520
+Acierto del 0.76094. Edades: 8. Tamano bases: 583, 134 y 717. Tiempo 101.166792
+Acierto del 0.73232. Edades: 8. Tamano bases: 583, 178 y 761. Tiempo 98.181870
+Solo base Stem. Acierto del 0.85185. Para Edades: 9
+Acierto del 0.79966. Edades: 9. Tamano bases: 620, 171 y 791. Tiempo 101.032520
+Acierto del 0.75421. Edades: 9. Tamano bases: 620, 128 y 748. Tiempo 99.624952
+Acierto del 0.73064. Edades: 9. Tamano bases: 620, 161 y 781. Tiempo 98.571920
+Solo base Stem. Acierto del 0.86027. Para Edades: 10
+Acierto del 0.81650. Edades: 10. Tamano bases: 691, 193 y 884. Tiempo 110.504246
+Acierto del 0.74916. Edades: 10. Tamano bases: 691, 130 y 821. Tiempo 103.947979
+Acierto del 0.72054. Edades: 10. Tamano bases: 691, 201 y 892. Tiempo 103.592727
+Solo base Stem. Acierto del 0.87374. Para Edades: 11
+Acierto del 0.81818. Edades: 11. Tamano bases: 708, 183 y 891. Tiempo 108.713361
+Acierto del 0.75758. Edades: 11. Tamano bases: 708, 118 y 826. Tiempo 105.976854
+Acierto del 0.73569. Edades: 11. Tamano bases: 708, 191 y 899. Tiempo 103.525465
+Solo base Stem. Acierto del 0.86532. Para Edades: 12
+Acierto del 0.80976. Edades: 12. Tamano bases: 710, 157 y 867. Tiempo 109.606854
+Acierto del 0.75926. Edades: 12. Tamano bases: 710, 116 y 826. Tiempo 103.274918
+Acierto del 0.72896. Edades: 12. Tamano bases: 710, 166 y 876. Tiempo 104.131496
+Acierto del 0.75421. Edades: 3. Tamano bases: 327, 221 y 548. Tiempo 228.644891
+
+Mejores hiperpar�metros:
+{'confianza': 0.95, 'n_age_bins': 3, 'soporte': 0.005}
+Mejor precisi�n: 0.7216610549943884
+
+
+
+-------------------------------
+fare_bins = [0., 25., 50., 100., 200., 513.]
+sibsp_bins = [0, 1, 3, 5, float('inf')]
+parch_bins = [0, 1, 3, 5, float('inf')]
+
+
+Solo base Stem. Acierto del 0.81818. Para Edades: 3
+Acierto del 0.80471. Edades: 3. Tamano bases: 468, 170 y 638. Tiempo 98.274836. Atributos 25
+Acierto del 0.75421. Edades: 3. Tamano bases: 468, 117 y 585. Tiempo 92.292001. Atributos 25
+Acierto del 0.73906. Edades: 3. Tamano bases: 468, 170 y 638. Tiempo 95.088932. Atributos 25
+Solo base Stem. Acierto del 0.80976. Para Edades: 4
+Acierto del 0.79125. Edades: 4. Tamano bases: 587, 135 y 722. Tiempo 107.296606. Atributos 26
+Acierto del 0.75589. Edades: 4. Tamano bases: 587, 105 y 692. Tiempo 104.209937. Atributos 26
+Acierto del 0.74579. Edades: 4. Tamano bases: 587, 160 y 747. Tiempo 104.786922. Atributos 26
+Solo base Stem. Acierto del 0.82492. Para Edades: 5
+Acierto del 0.80808. Edades: 5. Tamano bases: 635, 158 y 793. Tiempo 109.310538. Atributos 27
+Acierto del 0.73737. Edades: 5. Tamano bases: 635, 110 y 745. Tiempo 104.721514. Atributos 27
+Acierto del 0.72054. Edades: 5. Tamano bases: 635, 165 y 800. Tiempo 107.623330. Atributos 27
+Solo base Stem. Acierto del 0.84343. Para Edades: 6
+Acierto del 0.80471. Edades: 6. Tamano bases: 669, 149 y 818. Tiempo 107.768550. Atributos 28
+Acierto del 0.77609. Edades: 6. Tamano bases: 669, 105 y 774. Tiempo 103.470391. Atributos 28
+Acierto del 0.74579. Edades: 6. Tamano bases: 669, 155 y 824. Tiempo 104.900414. Atributos 28
+Solo base Stem. Acierto del 0.85690. Para Edades: 7
+Acierto del 0.81313. Edades: 7. Tamano bases: 712, 162 y 874. Tiempo 110.812276. Atributos 29
+Acierto del 0.77104. Edades: 7. Tamano bases: 712, 118 y 830. Tiempo 109.888418. Atributos 29
+Acierto del 0.75253. Edades: 7. Tamano bases: 712, 183 y 895. Tiempo 107.552543. Atributos 29
+Solo base Stem. Acierto del 0.86195. Para Edades: 8
+Acierto del 0.81818. Edades: 8. Tamano bases: 766, 156 y 922. Tiempo 110.860853. Atributos 30
+Acierto del 0.75926. Edades: 8. Tamano bases: 766, 111 y 877. Tiempo 110.767566. Atributos 30
+Acierto del 0.74747. Edades: 8. Tamano bases: 766, 153 y 919. Tiempo 109.288199. Atributos 30
+Solo base Stem. Acierto del 0.87205. Para Edades: 9
+Acierto del 0.81650. Edades: 9. Tamano bases: 829, 148 y 977. Tiempo 111.755898. Atributos 31
+Acierto del 0.76768. Edades: 9. Tamano bases: 829, 116 y 945. Tiempo 108.407720. Atributos 31
+Acierto del 0.75253. Edades: 9. Tamano bases: 829, 154 y 983. Tiempo 109.236570. Atributos 31
+Solo base Stem. Acierto del 0.87879. Para Edades: 10
+Acierto del 0.83670. Edades: 10. Tamano bases: 884, 156 y 1040. Tiempo 120.690032. Atributos 32
+Acierto del 0.75758. Edades: 10. Tamano bases: 884, 115 y 999. Tiempo 114.120952. Atributos 32
+Acierto del 0.73401. Edades: 10. Tamano bases: 884, 169 y 1053. Tiempo 113.985610. Atributos 32
+Solo base Stem. Acierto del 0.88384. Para Edades: 11
+Acierto del 0.84343. Edades: 11. Tamano bases: 934, 161 y 1095. Tiempo 117.788691. Atributos 33
+Acierto del 0.75758. Edades: 11. Tamano bases: 934, 117 y 1051. Tiempo 115.570034. Atributos 33
+Acierto del 0.75758. Edades: 11. Tamano bases: 934, 175 y 1109. Tiempo 114.746306. Atributos 33
+Solo base Stem. Acierto del 0.88047. Para Edades: 12
+Acierto del 0.84175. Edades: 12. Tamano bases: 917, 123 y 1040. Tiempo 115.144799. Atributos 34
+Acierto del 0.77609. Edades: 12. Tamano bases: 917, 106 y 1023. Tiempo 112.045350. Atributos 34
+Acierto del 0.74747. Edades: 12. Tamano bases: 917, 151 y 1068. Tiempo 112.830173. Atributos 34
+Solo base Stem. Acierto del 0.89057. Para Edades: 13
+Acierto del 0.84007. Edades: 13. Tamano bases: 988, 146 y 1134. Tiempo 114.791286. Atributos 35
+Acierto del 0.75589. Edades: 13. Tamano bases: 988, 118 y 1106. Tiempo 115.893816. Atributos 35
+Acierto del 0.73737. Edades: 13. Tamano bases: 988, 150 y 1138. Tiempo 114.554285. Atributos 35
+Solo base Stem. Acierto del 0.88889. Para Edades: 14
+Acierto del 0.84343. Edades: 14. Tamano bases: 1034, 162 y 1196. Tiempo 123.524003. Atributos 36
+Acierto del 0.74747. Edades: 14. Tamano bases: 1034, 120 y 1154. Tiempo 120.013222. Atributos 36
+Acierto del 0.74579. Edades: 14. Tamano bases: 1034, 164 y 1198. Tiempo 117.170554. Atributos 36
+Solo base Stem. Acierto del 0.89562. Para Edades: 15
+Acierto del 0.85690. Edades: 15. Tamano bases: 1072, 145 y 1217. Tiempo 119.412860. Atributos 37
+Acierto del 0.76094. Edades: 15. Tamano bases: 1072, 126 y 1198. Tiempo 113.740478. Atributos 37
+Acierto del 0.74074. Edades: 15. Tamano bases: 1072, 182 y 1254. Tiempo 118.376036. Atributos 37
+Solo base Stem. Acierto del 0.90067. Para Edades: 16
+Acierto del 0.85354. Edades: 16. Tamano bases: 1108, 144 y 1252. Tiempo 118.734377. Atributos 38
+Acierto del 0.76599. Edades: 16. Tamano bases: 1108, 110 y 1218. Tiempo 115.801944. Atributos 38
+Acierto del 0.74242. Edades: 16. Tamano bases: 1108, 157 y 1265. Tiempo 118.229020. Atributos 38
+Solo base Stem. Acierto del 0.89899. Para Edades: 17
+Acierto del 0.85017. Edades: 17. Tamano bases: 1124, 144 y 1268. Tiempo 119.588867. Atributos 39
+Acierto del 0.75421. Edades: 17. Tamano bases: 1124, 110 y 1234. Tiempo 116.786119. Atributos 39
+Acierto del 0.74074. Edades: 17. Tamano bases: 1124, 153 y 1277. Tiempo 116.149125. Atributos 39
+Solo base Stem. Acierto del 0.90236. Para Edades: 18
+Acierto del 0.85017. Edades: 18. Tamano bases: 1189, 149 y 1338. Tiempo 121.634169. Atributos 40
+Acierto del 0.77104. Edades: 18. Tamano bases: 1189, 106 y 1295. Tiempo 117.194819. Atributos 40
+Acierto del 0.75084. Edades: 18. Tamano bases: 1189, 165 y 1354. Tiempo 116.641378. Atributos 40
+Solo base Stem. Acierto del 0.90909. Para Edades: 19
+Acierto del 0.86364. Edades: 19. Tamano bases: 1200, 155 y 1355. Tiempo 120.922534. Atributos 41
+Acierto del 0.74747. Edades: 19. Tamano bases: 1200, 122 y 1322. Tiempo 115.807611. Atributos 41
+Acierto del 0.75253. Edades: 19. Tamano bases: 1200, 160 y 1360. Tiempo 117.864885. Atributos 41
+Solo base Stem. Acierto del 0.90236. Para Edades: 20
+Acierto del 0.85522. Edades: 20. Tamano bases: 1208, 148 y 1356. Tiempo 123.344439. Atributos 42
+Acierto del 0.74916. Edades: 20. Tamano bases: 1208, 110 y 1318. Tiempo 116.512248. Atributos 42
+Acierto del 0.73064. Edades: 20. Tamano bases: 1208, 163 y 1371. Tiempo 119.883791. Atributos 42
+Solo base Stem. Acierto del 0.90404. Para Edades: 21
+Acierto del 0.86195. Edades: 21. Tamano bases: 1229, 158 y 1387. Tiempo 120.884821. Atributos 43
+Acierto del 0.75421. Edades: 21. Tamano bases: 1229, 111 y 1340. Tiempo 117.128393. Atributos 43
+Acierto del 0.73232. Edades: 21. Tamano bases: 1229, 176 y 1405. Tiempo 119.139137. Atributos 43
+Solo base Stem. Acierto del 0.91077. Para Edades: 22
+Acierto del 0.86532. Edades: 22. Tamano bases: 1310, 154 y 1464. Tiempo 122.610315. Atributos 44
+Acierto del 0.74747. Edades: 22. Tamano bases: 1310, 109 y 1419. Tiempo 116.852570. Atributos 44
+Acierto del 0.73569. Edades: 22. Tamano bases: 1310, 147 y 1457. Tiempo 114.689797. Atributos 44
+Acierto del 0.76655. Edades: 3. Tamano bases: 468, 185 y 653. Tiempo 257.362103. Atributos 25
+
+Mejores hiperpar�metros:
+{'confianza': 0.95, 'n_age_bins': 3, 'soporte': 0.005}
+Mejor precisi�n: 0.7362514029180695
+
+
+
+
+
+
+
+------------ajuste hiperparametros 4
+
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 30, 'Total': 82, 'confianza': 0.8, 'soporte': 0.022, 'SA': 4, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 32, 'Total': 78, 'confianza': 0.8, 'soporte': 0.022, 'SA': 4, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 34, 'Total': 75, 'confianza': 0.8, 'soporte': 0.022, 'SA': 4, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 36, 'Total': 68, 'confianza': 0.8, 'soporte': 0.022, 'SA': 4, 'SF': 14}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 38, 'Total': 84, 'confianza': 0.8, 'soporte': 0.022, 'SA': 4, 'SF': 16}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 40, 'Total': 78, 'confianza': 0.8, 'soporte': 0.022, 'SA': 4, 'SF': 18}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 32, 'Total': 72, 'confianza': 0.8, 'soporte': 0.022, 'SA': 6, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 34, 'Total': 68, 'confianza': 0.8, 'soporte': 0.022, 'SA': 6, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 36, 'Total': 66, 'confianza': 0.8, 'soporte': 0.022, 'SA': 6, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 38, 'Total': 60, 'confianza': 0.8, 'soporte': 0.022, 'SA': 6, 'SF': 14}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 40, 'Total': 69, 'confianza': 0.8, 'soporte': 0.022, 'SA': 6, 'SF': 16}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 42, 'Total': 65, 'confianza': 0.8, 'soporte': 0.022, 'SA': 6, 'SF': 18}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 34, 'Total': 69, 'confianza': 0.8, 'soporte': 0.022, 'SA': 8, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 36, 'Total': 67, 'confianza': 0.8, 'soporte': 0.022, 'SA': 8, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 38, 'Total': 64, 'confianza': 0.8, 'soporte': 0.022, 'SA': 8, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 40, 'Total': 58, 'confianza': 0.8, 'soporte': 0.022, 'SA': 8, 'SF': 14}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 42, 'Total': 68, 'confianza': 0.8, 'soporte': 0.022, 'SA': 8, 'SF': 16}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 44, 'Total': 64, 'confianza': 0.8, 'soporte': 0.022, 'SA': 8, 'SF': 18}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 36, 'Total': 62, 'confianza': 0.8, 'soporte': 0.022, 'SA': 10, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 38, 'Total': 59, 'confianza': 0.8, 'soporte': 0.022, 'SA': 10, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 40, 'Total': 57, 'confianza': 0.8, 'soporte': 0.022, 'SA': 10, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 42, 'Total': 51, 'confianza': 0.8, 'soporte': 0.022, 'SA': 10, 'SF': 14}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 44, 'Total': 60, 'confianza': 0.8, 'soporte': 0.022, 'SA': 10, 'SF': 16}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 46, 'Total': 58, 'confianza': 0.8, 'soporte': 0.022, 'SA': 10, 'SF': 18}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 38, 'Total': 63, 'confianza': 0.8, 'soporte': 0.022, 'SA': 12, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 40, 'Total': 60, 'confianza': 0.8, 'soporte': 0.022, 'SA': 12, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 42, 'Total': 58, 'confianza': 0.8, 'soporte': 0.022, 'SA': 12, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 44, 'Total': 53, 'confianza': 0.8, 'soporte': 0.022, 'SA': 12, 'SF': 14}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 46, 'Total': 61, 'confianza': 0.8, 'soporte': 0.022, 'SA': 12, 'SF': 16}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 48, 'Total': 59, 'confianza': 0.8, 'soporte': 0.022, 'SA': 12, 'SF': 18}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 40, 'Total': 57, 'confianza': 0.8, 'soporte': 0.022, 'SA': 14, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 42, 'Total': 54, 'confianza': 0.8, 'soporte': 0.022, 'SA': 14, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 44, 'Total': 52, 'confianza': 0.8, 'soporte': 0.022, 'SA': 14, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 46, 'Total': 47, 'confianza': 0.8, 'soporte': 0.022, 'SA': 14, 'SF': 14}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 48, 'Total': 56, 'confianza': 0.8, 'soporte': 0.022, 'SA': 14, 'SF': 16}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 50, 'Total': 54, 'confianza': 0.8, 'soporte': 0.022, 'SA': 14, 'SF': 18}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 42, 'Total': 62, 'confianza': 0.8, 'soporte': 0.022, 'SA': 16, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 44, 'Total': 58, 'confianza': 0.8, 'soporte': 0.022, 'SA': 16, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 46, 'Total': 56, 'confianza': 0.8, 'soporte': 0.022, 'SA': 16, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 48, 'Total': 51, 'confianza': 0.8, 'soporte': 0.022, 'SA': 16, 'SF': 14}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 50, 'Total': 60, 'confianza': 0.8, 'soporte': 0.022, 'SA': 16, 'SF': 16}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 52, 'Total': 58, 'confianza': 0.8, 'soporte': 0.022, 'SA': 16, 'SF': 18}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 44, 'Total': 55, 'confianza': 0.8, 'soporte': 0.022, 'SA': 18, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 46, 'Total': 52, 'confianza': 0.8, 'soporte': 0.022, 'SA': 18, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 48, 'Total': 50, 'confianza': 0.8, 'soporte': 0.022, 'SA': 18, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 50, 'Total': 46, 'confianza': 0.8, 'soporte': 0.022, 'SA': 18, 'SF': 14}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 52, 'Total': 55, 'confianza': 0.8, 'soporte': 0.022, 'SA': 18, 'SF': 16}
+{'PSnF': 0.743, 'PS': 0.698, 'PL': 0.844, 'PC': 0.844, 'FP': 3, 'FN': 25, 'atributos': 54, 'Total': 52, 'confianza': 0.8, 'soporte': 0.022, 'SA': 18, 'SF': 18}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 30, 'Total': 345, 'confianza': 0.8, 'soporte': 0.0, 'SA': 4, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 30, 'Total': 270, 'confianza': 0.85, 'soporte': 0.0, 'SA': 4, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 30, 'Total': 292, 'confianza': 0.8, 'soporte': 0.001, 'SA': 4, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 30, 'Total': 217, 'confianza': 0.85, 'soporte': 0.001, 'SA': 4, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 30, 'Total': 274, 'confianza': 0.8, 'soporte': 0.003, 'SA': 4, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 30, 'Total': 199, 'confianza': 0.85, 'soporte': 0.003, 'SA': 4, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 30, 'Total': 251, 'confianza': 0.8, 'soporte': 0.006, 'SA': 4, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 30, 'Total': 176, 'confianza': 0.85, 'soporte': 0.006, 'SA': 4, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 30, 'Total': 156, 'confianza': 0.8, 'soporte': 0.011, 'SA': 4, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 32, 'Total': 330, 'confianza': 0.8, 'soporte': 0.0, 'SA': 4, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 32, 'Total': 254, 'confianza': 0.85, 'soporte': 0.0, 'SA': 4, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 32, 'Total': 277, 'confianza': 0.8, 'soporte': 0.001, 'SA': 4, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 32, 'Total': 201, 'confianza': 0.85, 'soporte': 0.001, 'SA': 4, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 32, 'Total': 258, 'confianza': 0.8, 'soporte': 0.003, 'SA': 4, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 32, 'Total': 182, 'confianza': 0.85, 'soporte': 0.003, 'SA': 4, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 32, 'Total': 233, 'confianza': 0.8, 'soporte': 0.006, 'SA': 4, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 32, 'Total': 157, 'confianza': 0.85, 'soporte': 0.006, 'SA': 4, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 32, 'Total': 149, 'confianza': 0.8, 'soporte': 0.011, 'SA': 4, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 34, 'Total': 331, 'confianza': 0.8, 'soporte': 0.0, 'SA': 4, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 34, 'Total': 260, 'confianza': 0.85, 'soporte': 0.0, 'SA': 4, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 34, 'Total': 273, 'confianza': 0.8, 'soporte': 0.001, 'SA': 4, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 34, 'Total': 202, 'confianza': 0.85, 'soporte': 0.001, 'SA': 4, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 34, 'Total': 256, 'confianza': 0.8, 'soporte': 0.003, 'SA': 4, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 34, 'Total': 185, 'confianza': 0.85, 'soporte': 0.003, 'SA': 4, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 34, 'Total': 228, 'confianza': 0.8, 'soporte': 0.006, 'SA': 4, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 34, 'Total': 157, 'confianza': 0.85, 'soporte': 0.006, 'SA': 4, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 34, 'Total': 143, 'confianza': 0.8, 'soporte': 0.011, 'SA': 4, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 32, 'Total': 405, 'confianza': 0.8, 'soporte': 0.0, 'SA': 6, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 32, 'Total': 295, 'confianza': 0.85, 'soporte': 0.0, 'SA': 6, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 32, 'Total': 337, 'confianza': 0.8, 'soporte': 0.001, 'SA': 6, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 32, 'Total': 227, 'confianza': 0.85, 'soporte': 0.001, 'SA': 6, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 32, 'Total': 316, 'confianza': 0.8, 'soporte': 0.003, 'SA': 6, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 32, 'Total': 206, 'confianza': 0.85, 'soporte': 0.003, 'SA': 6, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 32, 'Total': 286, 'confianza': 0.8, 'soporte': 0.006, 'SA': 6, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 32, 'Total': 176, 'confianza': 0.85, 'soporte': 0.006, 'SA': 6, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 32, 'Total': 161, 'confianza': 0.8, 'soporte': 0.011, 'SA': 6, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 34, 'Total': 384, 'confianza': 0.8, 'soporte': 0.0, 'SA': 6, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 34, 'Total': 280, 'confianza': 0.85, 'soporte': 0.0, 'SA': 6, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 34, 'Total': 316, 'confianza': 0.8, 'soporte': 0.001, 'SA': 6, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 34, 'Total': 212, 'confianza': 0.85, 'soporte': 0.001, 'SA': 6, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 34, 'Total': 292, 'confianza': 0.8, 'soporte': 0.003, 'SA': 6, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 34, 'Total': 188, 'confianza': 0.85, 'soporte': 0.003, 'SA': 6, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 34, 'Total': 267, 'confianza': 0.8, 'soporte': 0.006, 'SA': 6, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 34, 'Total': 163, 'confianza': 0.85, 'soporte': 0.006, 'SA': 6, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 34, 'Total': 152, 'confianza': 0.8, 'soporte': 0.011, 'SA': 6, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 36, 'Total': 389, 'confianza': 0.8, 'soporte': 0.0, 'SA': 6, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 36, 'Total': 286, 'confianza': 0.85, 'soporte': 0.0, 'SA': 6, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 36, 'Total': 316, 'confianza': 0.8, 'soporte': 0.001, 'SA': 6, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 36, 'Total': 213, 'confianza': 0.85, 'soporte': 0.001, 'SA': 6, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 36, 'Total': 298, 'confianza': 0.8, 'soporte': 0.003, 'SA': 6, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 36, 'Total': 195, 'confianza': 0.85, 'soporte': 0.003, 'SA': 6, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 36, 'Total': 261, 'confianza': 0.8, 'soporte': 0.006, 'SA': 6, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 36, 'Total': 158, 'confianza': 0.85, 'soporte': 0.006, 'SA': 6, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 36, 'Total': 149, 'confianza': 0.8, 'soporte': 0.011, 'SA': 6, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 34, 'Total': 417, 'confianza': 0.8, 'soporte': 0.0, 'SA': 8, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 34, 'Total': 323, 'confianza': 0.85, 'soporte': 0.0, 'SA': 8, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 34, 'Total': 337, 'confianza': 0.8, 'soporte': 0.001, 'SA': 8, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 34, 'Total': 243, 'confianza': 0.85, 'soporte': 0.001, 'SA': 8, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 34, 'Total': 301, 'confianza': 0.8, 'soporte': 0.003, 'SA': 8, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 34, 'Total': 207, 'confianza': 0.85, 'soporte': 0.003, 'SA': 8, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 34, 'Total': 263, 'confianza': 0.8, 'soporte': 0.006, 'SA': 8, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 34, 'Total': 169, 'confianza': 0.85, 'soporte': 0.006, 'SA': 8, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 34, 'Total': 154, 'confianza': 0.8, 'soporte': 0.011, 'SA': 8, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 36, 'Total': 408, 'confianza': 0.8, 'soporte': 0.0, 'SA': 8, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 36, 'Total': 311, 'confianza': 0.85, 'soporte': 0.0, 'SA': 8, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 36, 'Total': 330, 'confianza': 0.8, 'soporte': 0.001, 'SA': 8, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 36, 'Total': 233, 'confianza': 0.85, 'soporte': 0.001, 'SA': 8, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 36, 'Total': 292, 'confianza': 0.8, 'soporte': 0.003, 'SA': 8, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 36, 'Total': 195, 'confianza': 0.85, 'soporte': 0.003, 'SA': 8, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 36, 'Total': 256, 'confianza': 0.8, 'soporte': 0.006, 'SA': 8, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 36, 'Total': 159, 'confianza': 0.85, 'soporte': 0.006, 'SA': 8, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 36, 'Total': 153, 'confianza': 0.8, 'soporte': 0.011, 'SA': 8, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 38, 'Total': 410, 'confianza': 0.8, 'soporte': 0.0, 'SA': 8, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 38, 'Total': 319, 'confianza': 0.85, 'soporte': 0.0, 'SA': 8, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 38, 'Total': 325, 'confianza': 0.8, 'soporte': 0.001, 'SA': 8, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 38, 'Total': 234, 'confianza': 0.85, 'soporte': 0.001, 'SA': 8, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 38, 'Total': 289, 'confianza': 0.8, 'soporte': 0.003, 'SA': 8, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 38, 'Total': 198, 'confianza': 0.85, 'soporte': 0.003, 'SA': 8, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 38, 'Total': 245, 'confianza': 0.8, 'soporte': 0.006, 'SA': 8, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 38, 'Total': 154, 'confianza': 0.85, 'soporte': 0.006, 'SA': 8, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 38, 'Total': 144, 'confianza': 0.8, 'soporte': 0.011, 'SA': 8, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 36, 'Total': 438, 'confianza': 0.8, 'soporte': 0.0, 'SA': 10, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 36, 'Total': 345, 'confianza': 0.85, 'soporte': 0.0, 'SA': 10, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 36, 'Total': 345, 'confianza': 0.8, 'soporte': 0.001, 'SA': 10, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 36, 'Total': 252, 'confianza': 0.85, 'soporte': 0.001, 'SA': 10, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 36, 'Total': 309, 'confianza': 0.8, 'soporte': 0.003, 'SA': 10, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 36, 'Total': 216, 'confianza': 0.85, 'soporte': 0.003, 'SA': 10, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 36, 'Total': 270, 'confianza': 0.8, 'soporte': 0.006, 'SA': 10, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 36, 'Total': 177, 'confianza': 0.85, 'soporte': 0.006, 'SA': 10, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 36, 'Total': 147, 'confianza': 0.8, 'soporte': 0.011, 'SA': 10, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 38, 'Total': 420, 'confianza': 0.8, 'soporte': 0.0, 'SA': 10, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 38, 'Total': 329, 'confianza': 0.85, 'soporte': 0.0, 'SA': 10, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 38, 'Total': 326, 'confianza': 0.8, 'soporte': 0.001, 'SA': 10, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 38, 'Total': 235, 'confianza': 0.85, 'soporte': 0.001, 'SA': 10, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 38, 'Total': 291, 'confianza': 0.8, 'soporte': 0.003, 'SA': 10, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 38, 'Total': 200, 'confianza': 0.85, 'soporte': 0.003, 'SA': 10, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 38, 'Total': 259, 'confianza': 0.8, 'soporte': 0.006, 'SA': 10, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 38, 'Total': 168, 'confianza': 0.85, 'soporte': 0.006, 'SA': 10, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 38, 'Total': 144, 'confianza': 0.8, 'soporte': 0.011, 'SA': 10, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 40, 'Total': 425, 'confianza': 0.8, 'soporte': 0.0, 'SA': 10, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 40, 'Total': 337, 'confianza': 0.85, 'soporte': 0.0, 'SA': 10, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 40, 'Total': 325, 'confianza': 0.8, 'soporte': 0.001, 'SA': 10, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 40, 'Total': 237, 'confianza': 0.85, 'soporte': 0.001, 'SA': 10, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 40, 'Total': 290, 'confianza': 0.8, 'soporte': 0.003, 'SA': 10, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 40, 'Total': 202, 'confianza': 0.85, 'soporte': 0.003, 'SA': 10, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 40, 'Total': 252, 'confianza': 0.8, 'soporte': 0.006, 'SA': 10, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 40, 'Total': 164, 'confianza': 0.85, 'soporte': 0.006, 'SA': 10, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 40, 'Total': 137, 'confianza': 0.8, 'soporte': 0.011, 'SA': 10, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 38, 'Total': 481, 'confianza': 0.8, 'soporte': 0.0, 'SA': 12, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 38, 'Total': 362, 'confianza': 0.85, 'soporte': 0.0, 'SA': 12, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 38, 'Total': 356, 'confianza': 0.8, 'soporte': 0.001, 'SA': 12, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 38, 'Total': 237, 'confianza': 0.85, 'soporte': 0.001, 'SA': 12, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 38, 'Total': 318, 'confianza': 0.8, 'soporte': 0.003, 'SA': 12, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 38, 'Total': 199, 'confianza': 0.85, 'soporte': 0.003, 'SA': 12, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 38, 'Total': 278, 'confianza': 0.8, 'soporte': 0.006, 'SA': 12, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 38, 'Total': 159, 'confianza': 0.85, 'soporte': 0.006, 'SA': 12, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 38, 'Total': 140, 'confianza': 0.8, 'soporte': 0.011, 'SA': 12, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 40, 'Total': 467, 'confianza': 0.8, 'soporte': 0.0, 'SA': 12, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 40, 'Total': 348, 'confianza': 0.85, 'soporte': 0.0, 'SA': 12, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 40, 'Total': 342, 'confianza': 0.8, 'soporte': 0.001, 'SA': 12, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 40, 'Total': 223, 'confianza': 0.85, 'soporte': 0.001, 'SA': 12, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 40, 'Total': 307, 'confianza': 0.8, 'soporte': 0.003, 'SA': 12, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 40, 'Total': 188, 'confianza': 0.85, 'soporte': 0.003, 'SA': 12, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 40, 'Total': 268, 'confianza': 0.8, 'soporte': 0.006, 'SA': 12, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 40, 'Total': 149, 'confianza': 0.85, 'soporte': 0.006, 'SA': 12, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 40, 'Total': 136, 'confianza': 0.8, 'soporte': 0.011, 'SA': 12, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 42, 'Total': 474, 'confianza': 0.8, 'soporte': 0.0, 'SA': 12, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 42, 'Total': 361, 'confianza': 0.85, 'soporte': 0.0, 'SA': 12, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 42, 'Total': 345, 'confianza': 0.8, 'soporte': 0.001, 'SA': 12, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 42, 'Total': 232, 'confianza': 0.85, 'soporte': 0.001, 'SA': 12, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 42, 'Total': 308, 'confianza': 0.8, 'soporte': 0.003, 'SA': 12, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 42, 'Total': 195, 'confianza': 0.85, 'soporte': 0.003, 'SA': 12, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 42, 'Total': 260, 'confianza': 0.8, 'soporte': 0.006, 'SA': 12, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 42, 'Total': 147, 'confianza': 0.85, 'soporte': 0.006, 'SA': 12, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 42, 'Total': 133, 'confianza': 0.8, 'soporte': 0.011, 'SA': 12, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 40, 'Total': 519, 'confianza': 0.8, 'soporte': 0.0, 'SA': 14, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 40, 'Total': 412, 'confianza': 0.85, 'soporte': 0.0, 'SA': 14, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 40, 'Total': 365, 'confianza': 0.8, 'soporte': 0.001, 'SA': 14, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 40, 'Total': 258, 'confianza': 0.85, 'soporte': 0.001, 'SA': 14, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 40, 'Total': 321, 'confianza': 0.8, 'soporte': 0.003, 'SA': 14, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 40, 'Total': 214, 'confianza': 0.85, 'soporte': 0.003, 'SA': 14, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 40, 'Total': 273, 'confianza': 0.8, 'soporte': 0.006, 'SA': 14, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 40, 'Total': 166, 'confianza': 0.85, 'soporte': 0.006, 'SA': 14, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 40, 'Total': 140, 'confianza': 0.8, 'soporte': 0.011, 'SA': 14, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 42, 'Total': 499, 'confianza': 0.8, 'soporte': 0.0, 'SA': 14, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 42, 'Total': 393, 'confianza': 0.85, 'soporte': 0.0, 'SA': 14, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 42, 'Total': 345, 'confianza': 0.8, 'soporte': 0.001, 'SA': 14, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 42, 'Total': 239, 'confianza': 0.85, 'soporte': 0.001, 'SA': 14, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 42, 'Total': 306, 'confianza': 0.8, 'soporte': 0.003, 'SA': 14, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 42, 'Total': 200, 'confianza': 0.85, 'soporte': 0.003, 'SA': 14, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 42, 'Total': 264, 'confianza': 0.8, 'soporte': 0.006, 'SA': 14, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 42, 'Total': 158, 'confianza': 0.85, 'soporte': 0.006, 'SA': 14, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 42, 'Total': 135, 'confianza': 0.8, 'soporte': 0.011, 'SA': 14, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 44, 'Total': 508, 'confianza': 0.8, 'soporte': 0.0, 'SA': 14, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 44, 'Total': 404, 'confianza': 0.85, 'soporte': 0.0, 'SA': 14, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 44, 'Total': 351, 'confianza': 0.8, 'soporte': 0.001, 'SA': 14, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 44, 'Total': 247, 'confianza': 0.85, 'soporte': 0.001, 'SA': 14, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 44, 'Total': 311, 'confianza': 0.8, 'soporte': 0.003, 'SA': 14, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 44, 'Total': 207, 'confianza': 0.85, 'soporte': 0.003, 'SA': 14, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 44, 'Total': 257, 'confianza': 0.8, 'soporte': 0.006, 'SA': 14, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 44, 'Total': 153, 'confianza': 0.85, 'soporte': 0.006, 'SA': 14, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 44, 'Total': 132, 'confianza': 0.8, 'soporte': 0.011, 'SA': 14, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 42, 'Total': 541, 'confianza': 0.8, 'soporte': 0.0, 'SA': 16, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 42, 'Total': 439, 'confianza': 0.85, 'soporte': 0.0, 'SA': 16, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 42, 'Total': 373, 'confianza': 0.8, 'soporte': 0.001, 'SA': 16, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 42, 'Total': 271, 'confianza': 0.85, 'soporte': 0.001, 'SA': 16, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 42, 'Total': 322, 'confianza': 0.8, 'soporte': 0.003, 'SA': 16, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 42, 'Total': 220, 'confianza': 0.85, 'soporte': 0.003, 'SA': 16, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 42, 'Total': 272, 'confianza': 0.8, 'soporte': 0.006, 'SA': 16, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 42, 'Total': 170, 'confianza': 0.85, 'soporte': 0.006, 'SA': 16, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 42, 'Total': 141, 'confianza': 0.8, 'soporte': 0.011, 'SA': 16, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 44, 'Total': 530, 'confianza': 0.8, 'soporte': 0.0, 'SA': 16, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 44, 'Total': 418, 'confianza': 0.85, 'soporte': 0.0, 'SA': 16, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 44, 'Total': 363, 'confianza': 0.8, 'soporte': 0.001, 'SA': 16, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 44, 'Total': 251, 'confianza': 0.85, 'soporte': 0.001, 'SA': 16, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 44, 'Total': 318, 'confianza': 0.8, 'soporte': 0.003, 'SA': 16, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 44, 'Total': 206, 'confianza': 0.85, 'soporte': 0.003, 'SA': 16, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 44, 'Total': 270, 'confianza': 0.8, 'soporte': 0.006, 'SA': 16, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 44, 'Total': 158, 'confianza': 0.85, 'soporte': 0.006, 'SA': 16, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 44, 'Total': 137, 'confianza': 0.8, 'soporte': 0.011, 'SA': 16, 'SF': 10}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 46, 'Total': 540, 'confianza': 0.8, 'soporte': 0.0, 'SA': 16, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 46, 'Total': 438, 'confianza': 0.85, 'soporte': 0.0, 'SA': 16, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 46, 'Total': 365, 'confianza': 0.8, 'soporte': 0.001, 'SA': 16, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 46, 'Total': 263, 'confianza': 0.85, 'soporte': 0.001, 'SA': 16, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 46, 'Total': 317, 'confianza': 0.8, 'soporte': 0.003, 'SA': 16, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 46, 'Total': 215, 'confianza': 0.85, 'soporte': 0.003, 'SA': 16, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 46, 'Total': 258, 'confianza': 0.8, 'soporte': 0.006, 'SA': 16, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 46, 'Total': 156, 'confianza': 0.85, 'soporte': 0.006, 'SA': 16, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 46, 'Total': 133, 'confianza': 0.8, 'soporte': 0.011, 'SA': 16, 'SF': 12}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 44, 'Total': 556, 'confianza': 0.8, 'soporte': 0.0, 'SA': 18, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 3, 'FN': 26, 'atributos': 44, 'Total': 469, 'confianza': 0.85, 'soporte': 0.0, 'SA': 18, 'SF': 8}
+{'PSnF': 0.743, 'PS': 0.709, 'PL': 0.838, 'PC': 0.838, 'FP': 4, 'FN': 25, 'atributos': 44, 'Total': 348, 'confianza': 0.8, 'soporte': 0.001, 'SA': 18, 'SF': 8}
+
+
+
+
+
+Objetos,Tiempo,Conceptos,Implicaciones,Resultados
+10,0.03408026695251465,74,81,"(np.float64(0.5), np.int64(0), np.int64(1))"
+15,0.08351445198059082,172,183,"(np.float64(0.6666666666666666), np.int64(0), np.int64(1))"
+20,0.1521003246307373,267,260,"(np.float64(0.75), np.int64(0), np.int64(1))"
+30,0.3192737102508545,586,573,"(np.float64(0.8333333333333334), np.int64(0), np.int64(1))"
+50,1.228339433670044,1367,1014,"(np.float64(0.8), np.int64(0), np.int64(2))"
+100,5.714813470840454,3348,2245,"(np.float64(0.8), np.int64(0), np.int64(4))"
+150,15.680656433105469,5559,3798,"(np.float64(0.8), np.int64(0), np.int64(6))"
+200,32.929242849349976,7770,4874,"(np.float64(0.8), np.int64(0), np.int64(8))"
+250,59.45038318634033,10437,4686,"(np.float64(0.76), np.int64(0), np.int64(12))"
+300,91.02803802490234,11982,4403,"(np.float64(0.7833333333333333), np.int64(0), np.int64(13))"
+350,130.51373672485352,13639,5169,"(np.float64(0.7857142857142857), np.int64(0), np.int64(15))"
+400,194.18652486801147,16009,5037,"(np.float64(0.8), np.int64(0), np.int64(16))"
+450,261.2262535095215,17355,4917,"(np.float64(0.8), np.int64(0), np.int64(18))"
+500,344.65084433555603,19166,5159,"(np.float64(0.8), np.int64(0), np.int64(20))"
+550,446.691041469574,20866,5434,"(np.float64(0.7909090909090909), np.int64(0), np.int64(23))"
+600,573.4198801517487,22164,5575,"(np.float64(0.7916666666666666), np.int64(0), np.int64(25))"
+650,672.0805943012238,23672,5402,"(np.float64(0.7846153846153846), np.int64(0), np.int64(28))"

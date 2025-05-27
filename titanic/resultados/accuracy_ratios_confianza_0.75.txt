@@ -1,0 +1,6 @@
+Soporte: 150/712. Ratio de acierto: 0.776536312849162. Falsos positivos: 16. Falsos negativos: 24
+Soporte: 155/712. Ratio de acierto: 0.776536312849162. Falsos positivos: 16. Falsos negativos: 24
+Soporte: 160/712. Ratio de acierto: 0.6145251396648045. Falsos positivos: 0. Falsos negativos: 69
+Soporte: 165/712. Ratio de acierto: 0.6145251396648045. Falsos positivos: 0. Falsos negativos: 69
+Soporte: 170/712. Ratio de acierto: 0.6145251396648045. Falsos positivos: 0. Falsos negativos: 69
+Soporte: 175/712. Ratio de acierto: 0.6145251396648045. Falsos positivos: 0. Falsos negativos: 69

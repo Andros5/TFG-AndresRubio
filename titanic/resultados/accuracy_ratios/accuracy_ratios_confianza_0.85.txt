@@ -1,0 +1,11 @@
+Soporte: 0/891. Ratio de acierto: 0.6145251396648045
+Soporte: 1/891. Ratio de acierto: 0.6145251396648045
+Soporte: 2/891. Ratio de acierto: 0.6145251396648045
+Soporte: 4/891. Ratio de acierto: 0.6145251396648045
+Soporte: 8/891. Ratio de acierto: 0.6145251396648045
+Soporte: 16/891. Ratio de acierto: 0.6145251396648045
+Soporte: 32/891. Ratio de acierto: 0.6145251396648045
+Soporte: 64/891. Ratio de acierto: 0.6145251396648045
+Soporte: 128/891. Ratio de acierto: 0.6145251396648045
+Soporte: 256/891. Ratio de acierto: 0.6145251396648045
+Soporte: 512/891. Ratio de acierto: 0.6145251396648045

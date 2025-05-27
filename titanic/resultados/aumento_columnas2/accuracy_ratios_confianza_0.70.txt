@@ -1,0 +1,11 @@
+Soporte: 0.0/712. Ratio de acierto: 0.6703910614525139. Falsos positivos: 52. Falsos negativos: 7. Tamano base 3475
+Soporte: 0.0014044943820224719/712. Ratio de acierto: 0.6703910614525139. Falsos positivos: 52. Falsos negativos: 7. Tamano base 3475
+Soporte: 0.0028089887640449437/712. Ratio de acierto: 0.6703910614525139. Falsos positivos: 52. Falsos negativos: 7. Tamano base 3475
+Soporte: 0.0056179775280898875/712. Ratio de acierto: 0.6815642458100558. Falsos positivos: 50. Falsos negativos: 7. Tamano base 3054
+Soporte: 0.011235955056179775/712. Ratio de acierto: 0.6983240223463687. Falsos positivos: 45. Falsos negativos: 9. Tamano base 1987
+Soporte: 0.02247191011235955/712. Ratio de acierto: 0.7262569832402235. Falsos positivos: 36. Falsos negativos: 13. Tamano base 1244
+Soporte: 0.0449438202247191/712. Ratio de acierto: 0.7541899441340782. Falsos positivos: 26. Falsos negativos: 18. Tamano base 495
+Soporte: 0.0898876404494382/712. Ratio de acierto: 0.776536312849162. Falsos positivos: 16. Falsos negativos: 24. Tamano base 262
+Soporte: 0.1797752808988764/712. Ratio de acierto: 0.776536312849162. Falsos positivos: 16. Falsos negativos: 24. Tamano base 165
+Soporte: 0.3595505617977528/712. Ratio de acierto: 0.6145251396648045. Falsos positivos: 0. Falsos negativos: 69. Tamano base 35
+Soporte: 0.7191011235955056/712. Ratio de acierto: 0.6145251396648045. Falsos positivos: 0. Falsos negativos: 69. Tamano base 2
