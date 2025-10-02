@@ -114,7 +114,7 @@ Si tienes dudas sobre el contenido de este repositorio o el trabajo presentado, 
 ## 🔗 Referencias
 
 - [Análisis Formal de Conceptos - Wikipedia](https://es.wikipedia.org/wiki/An%C3%A1lisis_formal_de_conceptos)
-- [ConExp - FCA Software Tool](https://conexp.github.io/)
+- [ConExp - FCA Software Tool](https://github.com/xflr6/concepts)
 - [Dataset Titanic - Kaggle](https://www.kaggle.com/c/titanic)
 - [Dataset Churn Modelling - Kaggle](https://www.kaggle.com/datasets/shubhendra7/churn-modelling)
 
